@@ -1,16 +1,22 @@
 {
   "manifest_version": 2,
 
-  "name": "Code In Love Description Change",
-  "description": "This extension shows a new description from Gif hosted at Coding Love to send to your friends",
-  "version": "1.0",
- "permissions": ["tabs", "http://*/*"],
+  "name": "Pixlr Editor remove AD",
+  "description": "This extension show pixlr editor without ADs",
+  "version": "0.1",
+ "permissions": ["tabs", "https://pixlr.com/editor/"],
   "browser_action": {
     "default_icon": "icon.png",
     "default_popup": "popup.html"
   },
   "permissions": [
-	"activeTab",
-    "https://ajax.googleapis.com/"
+	"activeTab"
+  ],
+  "content_scripts": [
+    {
+	"run_at": "document_end",
+    "matches": ["https://pixlr.com/editor/"],
+    "js": ["load.js"]
+  }
   ]
 }
